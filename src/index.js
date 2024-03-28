@@ -11,17 +11,17 @@ const Overlay = () => {
   useEffect(() => {
     const handleLockchange = (e) => {
       if(document.pointerLockElement === null) {
-          setReady(false)        
+          setReady(false)
       } else {
           setReady(true)
       }
     }
-    
+
     document.addEventListener("pointerlockchange", handleLockchange);
     return () => {
       document.removeEventListener("pointerlockchange", handleLockchange)
     }
-  })  
+  })
 
   return (
     <>
@@ -32,8 +32,8 @@ const Overlay = () => {
         <img className={ready ? "" : "controlsR"} src="./assets/Images/ControlsR.png" alt="Look: MOUSE"></img>
         <img className={ready ? "" : "controlsTR"} src="./assets/Images/ControlsTR.png" alt="Toggle Performance: P Toggle Night Mode: N"></img>
       </div>
-      <div className="dot" 
-      style={{ pointerEvents: ready ? "none" : "all" }} 
+      <div className="dot"
+      style={{ pointerEvents: ready ? "none" : "all" }}
       />
       <Loading />
       </>
